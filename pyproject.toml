@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "postgres-trial"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <your.email@example.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.10.0,<4.0.0"
+fastapi = "0.87.0"
+uvicorn = "0.20.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
