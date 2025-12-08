@@ -1,0 +1,28 @@
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+    ports:
+      - "5432:5432"
+
+  app:
+    build: .
+    container_name: my_app
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_HOST: postgres
+      DATABASE_USER: myuser
+      DATABASE_PASSWORD: mypassword
+      DATABASE_NAME: mydatabase
+      PGDATABASE: mydatabase
+      DATABASE_URL: postgresql://myuser:mypassword@postgres:5432/mydatabase
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    command: sh -c "alembic upgrade head && uvicorn postgres_trial.main:app --host 0.0.0.0 --port 8000"
