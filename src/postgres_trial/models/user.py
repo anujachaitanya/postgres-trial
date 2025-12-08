@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String
 
-from src import Base
+from src.postgres_trial.model import Base
 
 
 class User(Base):

@@ -4,9 +4,11 @@ import fastapi
 from src.postgres_trial.clients.sql_client import PostgresClient
 import os
 
+from src.postgres_trial.models.user import User
+
 client = PostgresClient()
 
-client.init(host=os.getenv("DATABASE_HOST"),
+session = client.init(host=os.getenv("DATABASE_HOST"),
             database=os.getenv("DATABASE_NAME"),
             user=os.getenv("DATABASE_USER"),
             password=os.getenv("DATABASE_PASSWORD"),
@@ -21,14 +23,12 @@ async def read_root():
 
 @app.get("/users")
 async def read_users():
-    users = client.fetch("SELECT * FROM users")
-    return {"users": [dict(user._mapping) for user in users]}
+    users = client.session.query(User).all()
+    return users
 
 
 @app.post("/users")
 async def create_user(name: str, email: str):
-    client.fetch(
-        "INSERT INTO users (name, email) VALUES (:name, :email)",
-        {"name": name, "email": email}
-    )
+    user = User(name=name, email=email)
+    client.session.add(user)
     return {"message": "User created successfully"}
