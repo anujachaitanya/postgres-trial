@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-from src import Base
+from src.postgres_trial.model import Base
 
 target_metadata = Base.metadata
 
