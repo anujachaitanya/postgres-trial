@@ -2,6 +2,7 @@ from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
 
 
+
 class PostgresClient:
     def init(self, host, database, user, password, port=5432):
         connection_string = f"postgresql://{user}:{password}@{host}:{port}/{database}"
