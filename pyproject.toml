@@ -11,6 +11,7 @@ uvicorn = "0.20.0"
 alembic = "1.17.2"
 python-dotenv = "1.2.1"
 psycopg2-binary = "2.9.11"
+sqlparse = "0.4.3"
 
 [build-system]
 requires = ["poetry-core"]

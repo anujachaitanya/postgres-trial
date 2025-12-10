@@ -561,6 +561,18 @@ pymysql = ["pymysql"]
 sqlcipher = ["sqlcipher3_binary"]
 
 [[package]]
+name = "sqlparse"
+version = "0.4.3"
+description = "A non-validating SQL parser."
+optional = false
+python-versions = ">=3.5"
+groups = ["main"]
+files = [
+    {file = "sqlparse-0.4.3-py3-none-any.whl", hash = "sha256:0323c0ec29cd52bceabc1b4d9d579e311f3e4961b98d174201d5622a23b85e34"},
+    {file = "sqlparse-0.4.3.tar.gz", hash = "sha256:69ca804846bb114d2ec380e4360a8a340db83f0ccf3afceeb1404df028f57268"},
+]
+
+[[package]]
 name = "starlette"
 version = "0.21.0"
 description = "The little ASGI library that shines."
@@ -665,4 +677,4 @@ standard = ["colorama (>=0.4) ; sys_platform == \"win32\"", "httptools (>=0.5.0)
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10.0,<4.0.0"
-content-hash = "85a0e0dbaf848c089def76bb698581198c98d572caa68488de093e7177f2461d"
+content-hash = "eba53a292b3587aacb8aa096fbcf8e83f87371cfbb870f316b563288353f388c"
